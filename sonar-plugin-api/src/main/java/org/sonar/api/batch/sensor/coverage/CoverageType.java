@@ -84,6 +84,9 @@ public enum CoverageType {
   }
 
   public Set<Metric> allMetrics() {
+    if (false) {
+      System.out.println("xxx");
+    }
     return all;
   }
 
