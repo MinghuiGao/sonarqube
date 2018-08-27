@@ -23,5 +23,5 @@ task:
   cleanup_before_cache_script:
     - rm -rf ~/.gradle/caches/$GRADLE_VERSION/
     - rm -rf ~/.gradle/caches/build-cache-1/
+    - rm -rf ~/.gradle/caches/modules-2/metadata-2.58/
     - find ~/.gradle/caches/ -name "*.lock" -type f -delete
-    - find ~/.gradle/caches/modules-2/metadata-2.58/ -name "*.bin" -type f -delete
