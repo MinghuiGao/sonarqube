@@ -37,9 +37,8 @@ if (project.hasProperty('time-tracker')) {
   buildtimetracker {
     reporters {
       summary {
-        ordered false
-        threshold 50
-        barstyle 'unicode'
+        ordered true
+        barstyle 'ascii'
       }
     }
   }
