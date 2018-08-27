@@ -9,7 +9,7 @@ task:
     zone: us-central1-a
     namespace: default
     cpu: 3
-    memory: 4500m
+    memory: 4300m
   gradle_cache:
     folder: ~/.gradle/caches
   env:
