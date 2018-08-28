@@ -12,6 +12,9 @@ task:
     memory: 4300m
   gradle_cache:
     folder: ~/.gradle/caches
+  workspace_cache:
+    folder: workspace
+    fingerprint_script: echo $CIRRUS_BUILD_ID
   env:
     GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Xmx1G -XX:MaxRAMFraction=1 -XX:+HeapDumpOnOutOfMemoryError"
     ARTIFACTORY_PRIVATE_USERNAME: ENCRYPTED[c44a330260ad4a0bf8ba11eb734e364e7fc4c0590298fc9679a2a76a722cfab8de310be429aa5820100ed92a1a2f977e]
@@ -20,6 +23,7 @@ task:
     - printenv
     - java -version
     - gradle build --no-daemon --build-cache --parallel -DbuildNumber=$CIRRUS_BUILD_ID -Pofficial -Ptime-tracker
+    - cp sonar-application/build/distributions/* workspace
   cleanup_before_cache_script:
     - rm -rf ~/.gradle/caches/$GRADLE_VERSION/
     - rm -rf ~/.gradle/caches/build-cache-1/
